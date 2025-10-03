@@ -19,19 +19,19 @@ const Movie = db.sequelize.define(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        idade: {
+        age_rating: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        direcao: {
+        film_direction: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        sinopse: {
+        synopsis: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        Data_lanc:{
+        launch_year:{
             type: DataTypes.DATE,
             allowNull: false,
         },
