@@ -1,27 +1,13 @@
-//IMPORTANDO A BIBLIOTECA SEQUELIZE
-const Sequelize = require('sequelize');
+const { Sequelize } = require('sequelize');
 
-//CRIANDO UMA VARIAVEL QUE IRA IMPLEMENTAR ...
-const sequelize = new Sequelize(
-    'Projeto_BancoDeDados', 
-    'root',
-    '',
-    //INSERINDO A INFORMÇÃO DO BANCO(OND ESTÁ E QUAL O DIALETO)
-    {
-        host: 'localhost',
-        dialect: 'mysql'
-    }
-);
-
-/*sequelize.authenticate().then(function()
-{
-    console.log("Conexão efetuada com sucesso");
-}).catch((error)=>{
-    console.log("Falha ao conectar: " + error);
+const sequelize = new Sequelize('Projeto_BancoDeDados', 'root', '', {
+    host: 'localhost',
+    dialect: 'mysql',
+    logging: true
 });
-*/
 
-module.exports = {
-    Sequelize,
-    sequelize
-}
+sequelize.authenticate()
+    .then(() => console.log(' Conectado ao banco com sucesso'))
+    .catch(err => console.error(' Erro ao conectar ao banco:', err));
+
+module.exports = { sequelize };

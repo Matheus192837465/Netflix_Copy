@@ -1,34 +1,32 @@
 const { DataTypes } = require('sequelize');
-const db = require('../database/db');
-const { FORCE } = require('sequelize/lib/index-hints');
+const { sequelize } = require('../database/db');
 
-const User = db.sequelize.define(
-    'user',
-    {
-        id_user: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
-            allowNull: false
-        },
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        active: {
-            type: DataTypes.BOOLEAN,
-        }
+const User = sequelize.define('user', {
+    id_user: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false
+    },
+    username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    active: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true
+    }
+}, {
+    timestamps: false,
+    tableName: 'users'
+});
 
-    }    
-);
-
-User.sync({FORCE: true});
 module.exports = User;
