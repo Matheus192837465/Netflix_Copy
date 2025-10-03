@@ -1,12 +1,15 @@
 const express = require('express');
 const { sequelize } = require('./database/db');
+const db = require('./database/db'); 
 const User = require('./model/user');
 const Movie = require('./model/movie');
+const { user, movie } = require('./model/userMovie');
+
 
 const app = express();
 app.use(express.json());
 
-// ROTAS DE USUÁRIO
+
 
 app.post('/create_user', async (req, res) => {
     try {
@@ -46,7 +49,6 @@ app.put('/updateUser/:id', async (req, res) => {
     }
 });
 
-// ROTAS DE FILME
 
 app.post('/create_movie', async (req, res) => {
     try {
@@ -85,13 +87,17 @@ app.put('/updateMovie/:id', async (req, res) => {
     }
 });
 
-// INICIALIZAÇÃO
 
 (async () => {
     try {
-        await sequelize.sync({ alter: true });  // cria tabelas sem apagar dados
-        app.listen(3000, () => console.log(' Servidor rodando na porta 3000'));
+      await db.sequelize.sync({ alter: true }); // sincroniza as tabelas, alterando conforme os models
+      console.log("Tabelas sincronizadas com sucesso.");
+      
+      app.listen(3000, () => {
+        console.log("Servidor rodando na porta 3000");
+      });
     } catch (err) {
-        console.error('Erro ao iniciar o servidor:', err);
+      console.error("Erro ao sincronizar tabelas:", err);
     }
-})();
+  })();
+  
