@@ -1,19 +1,4 @@
-
-    const express = require('express');
-    const { sequelize } = require('./database/db');
-    const db = require('./database/db'); 
-    const User = require('./model/user');
-    const Movie = require('./model/movie');
-    const { user, movie } = require('./model/userMovie');
-    const {engine} = require('express-handlebars')
-
-
-    const app = express();
-    app.use(express.json());
-    app.engine('handlebars', engine({
-        defaultLayout: 'main',
-        extname: '.handlebars' 
-    }));const express = require('express');
+const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const { sequelize } = require('./database/db');

@@ -10,12 +10,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^5.1.0",
-<<<<<<< HEAD
-    "express-handlebars": "^8.0.1",
-=======
+    "express": "^5.2.1",
     "express-handlebars": "^8.0.3",
->>>>>>> 34c9632 (final  handlebars)
     "mysql2": "^3.14.4",
     "nodemon": "^3.1.11",
     "sequelize": "^6.37.7",
