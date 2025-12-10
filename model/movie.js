@@ -16,6 +16,10 @@ const Movie = db.sequelize.define('movie', {
     type: DataTypes.STRING,
     allowNull: false
   },
+  poster: {
+    type: DataTypes.TEXT,
+    allowNull: true
+  },
   age_rating: {
     type: DataTypes.STRING,
     allowNull: false
@@ -25,7 +29,7 @@ const Movie = db.sequelize.define('movie', {
     allowNull: false
   },
   synopsis: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false
   },
   launch_year: {

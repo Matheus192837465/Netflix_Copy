@@ -1,5 +1,3 @@
-const db = require('../database/db');
-
 const User = require('./user');
 const Movie = require('./movie');
 
